@@ -37,7 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
           (err) => {
               console.log(err);
               if (err.error == "no-speech") {
-                  console.log("--restatring service--");
+                  console.log("--restarting service--");
                   this.activateSpeechSearchMovie();
               }
           },
@@ -47,6 +47,11 @@ export class AppComponent implements OnInit, OnDestroy {
               console.log("--complete--");
               this.activateSpeechSearchMovie();
           });
+  }
+
+  stopSpeechSearchMovie() {
+    this.speechRecognitionService.DestroySpeechObject();
+    this.showSearchButton = true;
   }
 
 }
